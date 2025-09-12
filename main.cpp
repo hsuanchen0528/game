@@ -313,8 +313,8 @@ string graph_copy[4] = {
 };
 
 
-int player_now_list[4] = { 0, 1133, 804, 804 };  //ª±®aªº°_©l®y¼Ğ
-int monster_now_list[20][4] = { //©ÇÃ~ªº°_©l®y¼Ğ
+int player_now_list[4] = { 0, 1133, 804, 804 };  //ç©å®¶çš„èµ·å§‹åº§æ¨™
+int monster_now_list[20][4] = { //æ€ªç¸çš„èµ·å§‹åº§æ¨™
     {},
     {0, 852, 553, 291},
     {0, 267, 483, 966},
@@ -347,7 +347,7 @@ int died_times = 0;
 
 //            u/w  d/s r/d  l/a
 int dir_xy[4] = {-87, 87,  1,  -1};
-int level_up[4]={0, 8, 10, 6}; //¤É¯Åªº¤À¼Æ¼Ğ·Ç
+int level_up[4]={0, 8, 10, 6}; //å‡ç´šçš„åˆ†æ•¸æ¨™æº–
 //int level_up[4]={0, 2, 3, 2};
 
 string player_name;
@@ -366,7 +366,7 @@ signed main(){
     return 0;
 }
 
-// ªì©l³]©w
+// åˆå§‹è¨­å®š
 
 void SetColor(int color = 7) {
   HANDLE hConsole;
@@ -374,7 +374,7 @@ void SetColor(int color = 7) {
   SetConsoleTextAttribute(hConsole, color);
 }
 
-void a_name(string &player_name) {  //¨ú¦W
+void a_name(string &player_name) {  //å–å
 
     SetColor(240);
     system("clear");
@@ -411,12 +411,12 @@ void a_name(string &player_name) {  //¨ú¦W
     system("clear");
 }
 
-void change_b1(string player_name) { //¿é¥X¹CÀ¸«e°ò¥»¸ê°T
+void change_b1(string player_name) { //è¼¸å‡ºéŠæˆ²å‰åŸºæœ¬è³‡è¨Š
     SetColor(240);
     system("clear");
     border[0] = border[1];
 
-    int a = 0, b = 314;   // a ¦W¦rªº²Ä´X¦ì  b Åã¥Ü®Øªº²Ä´X¦ì
+    int a = 0, b = 314;   // a åå­—çš„ç¬¬å¹¾ä½  b é¡¯ç¤ºæ¡†çš„ç¬¬å¹¾ä½
     for( ; a < player_name.size() ; a++, b++)  border[0][b] = player_name[a];
 
     a = 0, b = 426;
@@ -487,13 +487,13 @@ void change_b1(string player_name) { //¿é¥X¹CÀ¸«e°ò¥»¸ê°T
     system("clear");
 }
 
-string difficulty_return() { //¹CÀ¸Ãø«×¼Æ¦r¹ï·Ó­^¤åÂà´«
+string difficulty_return() { //éŠæˆ²é›£åº¦æ•¸å­—å°ç…§è‹±æ–‡è½‰æ›
     if( 1 <= difficulty and difficulty <= 4 )   return "Easy";
     if( 5 <= difficulty and difficulty <= 10 )   return "Medium";
     if( 11 <= difficulty and difficulty <= 15 )   return "Hard";
 }
 
-void set_difficulty() { //³]©w¹CÀ¸Ãø«×
+void set_difficulty() { //è¨­å®šéŠæˆ²é›£åº¦
     SetColor(240);
     system("clear");
     char c;
@@ -530,7 +530,7 @@ void set_difficulty() { //³]©w¹CÀ¸Ãø«×
         cout << "   Easy  1 ~ 4\n";
         cout << "   Medium  5 ~ 10\n";
         cout << "   Hard  11 ~ 15\n\n";
-        cout << "Set the level of difficulty you want¡Xthe higher the number, the harder the challenge. : \n";
+        cout << "Set the level of difficulty you wantâ€”the higher the number, the harder the challenge. : \n";
         cout << "difficulty (Please input a number between 1 to 15) : ";
         cin >> diff;
         difficulty = str_to_int(diff);
@@ -548,7 +548,7 @@ void set_difficulty() { //³]©w¹CÀ¸Ãø«×
 }
 
 //---------------------------------------------
-//³õ´º/ª¬ºA ³]©w
+//å ´æ™¯/ç‹€æ…‹ è¨­å®š
 
 void output_graph(int id) {
     system("clear");
@@ -618,7 +618,7 @@ void level_output(int id) {
     Sleep(1000);
 }
 
-void ofstream_run(int id) { //±N¸ê°T¼g¤JÀÉ®×
+void ofstream_run(int id) { //å°‡è³‡è¨Šå¯«å…¥æª”æ¡ˆ
     ofstream ofs;
     ofs.open("output.txt", ios::app);
     ofs << setw(15) << player_name << "    " << setw(2) << original_difficulty << "    " <<setw(2) << id
@@ -626,7 +626,7 @@ void ofstream_run(int id) { //±N¸ê°T¼g¤JÀÉ®×
     ofs.close();
 }
 
-void suggest() { //«ØÄ³º¡·N«×¦^õX
+void suggest() { //å»ºè­°æ»¿æ„åº¦å›é¥‹
     SetColor(107);
     system("clear");
     cout << npc << " : " << "I wonder if you found it fun?" << "\n\n";
@@ -676,7 +676,7 @@ void suggest() { //«ØÄ³º¡·N«×¦^õX
     ofs.close();
 }
 
-void again() { //½T»{ª±®a¨Ï§_­n¦Aª±¤@¦¸
+void again() { //ç¢ºèªç©å®¶ä½¿å¦è¦å†ç©ä¸€æ¬¡
     SetColor(102);
     system("clear");
 
@@ -712,7 +712,7 @@ void again() { //½T»{ª±®a¨Ï§_­n¦Aª±¤@¦¸
     }
 }
 
-void finish(int id) { // §¹¦¨¹CÀ¸ (§¹¥şµ²§ô)
+void finish(int id) { // å®ŒæˆéŠæˆ² (å®Œå…¨çµæŸ)
     SetColor(102);
     system("clear");
     system("stty icanon");
@@ -740,17 +740,17 @@ void finish(int id) { // §¹¦¨¹CÀ¸ (§¹¥şµ²§ô)
     exit(0);
 }
 
-void get_money(int pos, int id) { //±o$ªº¾Ş§@
+void get_money(int pos, int id) { //å¾—$çš„æ“ä½œ
     graph[id][pos] = ' ';
     money++;
 }
 
-void get_scores(int pos, int id) { //±o¤Àªº¾Ş§@
+void get_scores(int pos, int id) { //å¾—åˆ†çš„æ“ä½œ
     graph[id][pos] = ' ';
     scores++;
 }
 
-void player_died(int pos, int id) { //ª±®a¦º¤`ªº¾Ş§@
+void player_died(int pos, int id) { //ç©å®¶æ­»äº¡çš„æ“ä½œ
     died_output();
     died_times++;
     SetColor(15);
@@ -769,7 +769,7 @@ void player_died(int pos, int id) { //ª±®a¦º¤`ªº¾Ş§@
 
 // $$$ / ...
 
-void init_scores_set(int id){ //¦b³Ì¶}©l³]©w $ .
+void init_scores_set(int id){ //åœ¨æœ€é–‹å§‹è¨­å®š $ .
     int cnt = 0;
     while(cnt <= 10){
         int r = rand() % 1216;
@@ -780,7 +780,7 @@ void init_scores_set(int id){ //¦b³Ì¶}©l³]©w $ .
     }
 }
 
-void set_scores_and_money(int id) { //³]©w $ .  ¨C¦¸²¾°Ê´NÀH¾÷¼W¥[
+void set_scores_and_money(int id) { //è¨­å®š $ .  æ¯æ¬¡ç§»å‹•å°±éš¨æ©Ÿå¢åŠ 
     for(int i = 1 ; i <= 3; i++) {
         int r = rand() % 1216;
         if((int)graph[id][r] == 32)    graph[id][r] = '.';
@@ -790,9 +790,9 @@ void set_scores_and_money(int id) { //³]©w $ .  ¨C¦¸²¾°Ê´NÀH¾÷¼W¥[
 }
 
 //---------------------------------------------
-//ª±®aªº²¾°Ê¾Ş§@
+//ç©å®¶çš„ç§»å‹•æ“ä½œ
 
-int dir_retrun(char d) { //±N¦r¥À(¤è¦V)Âà´«¦¨§ó®e©ö§PÅªªº¼Æ¦r
+int dir_retrun(char d) { //å°‡å­—æ¯(æ–¹å‘)è½‰æ›æˆæ›´å®¹æ˜“åˆ¤è®€çš„æ•¸å­—
     if(d == 'W' or d == 'w')    return 0;
     if(d == 'S' or d == 's')    return 1;
     if(d == 'D' or d == 'd')    return 2;
@@ -800,7 +800,7 @@ int dir_retrun(char d) { //±N¦r¥À(¤è¦V)Âà´«¦¨§ó®e©ö§PÅªªº¼Æ¦r
     return 4;
 }
 
-int player_check_pos(int pos, int id) {   // ½T»{±ı«e©¹ªº¦ì¸m¬O§_¦Xªk
+int player_check_pos(int pos, int id) {   // ç¢ºèªæ¬²å‰å¾€çš„ä½ç½®æ˜¯å¦åˆæ³•
     if(graph[id][pos] == 'M')   return 4;
     if(graph[id][pos] == '$')   get_money(pos, id);
     if(graph[id][pos] == '.')   get_scores(pos, id);
@@ -808,14 +808,14 @@ int player_check_pos(int pos, int id) {   // ½T»{±ı«e©¹ªº¦ì¸m¬O§_¦Xªk
     return 0;
 }
 
-void player_change_pos(int from, int to, int id) { // Åã¥Ü¦ì¸mªº²¾°Ê
+void player_change_pos(int from, int to, int id) { // é¡¯ç¤ºä½ç½®çš„ç§»å‹•
     graph[id][from] = player_char;
     player_char = graph[id][to];
     graph[id][to] = 'P';
 }
 
 int nowwww;
-int dir_input(int id) { //Åıª±®a¿é¤J±ı²¾°Êªº¤è¦V
+int dir_input(int id) { //è®“ç©å®¶è¼¸å…¥æ¬²ç§»å‹•çš„æ–¹å‘
     SetColor(240);
     output_graph(id);
 
@@ -834,7 +834,7 @@ int dir_input(int id) { //Åıª±®a¿é¤J±ı²¾°Êªº¤è¦V
     return aa;
 }
 
-int player_run(int player_now, int id) { // ¶i¦æ²¾°Êªº¾Ş§@
+int player_run(int player_now, int id) { // é€²è¡Œç§»å‹•çš„æ“ä½œ
 
     nowwww=player_now;
     int aa = dir_input(id);
@@ -854,10 +854,10 @@ int player_run(int player_now, int id) { // ¶i¦æ²¾°Êªº¾Ş§@
 }
 
 //-----------------------------------------------
-// ©ÇÃ~¹B§@
+// æ€ªç¸é‹ä½œ
 
 
-int monster_check_pos(int pos, int id) {   // ½T»{±ı«e©¹ªº¦ì¸m¬O§_¦Xªk
+int monster_check_pos(int pos, int id) {   // ç¢ºèªæ¬²å‰å¾€çš„ä½ç½®æ˜¯å¦åˆæ³•
     if(graph[id][pos] == 'P')   return 4;
     if(graph[id][pos] == '$')   graph[id][pos] = ' ';
     if(graph[id][pos] == '.')   graph[id][pos] = ' ';
@@ -865,13 +865,13 @@ int monster_check_pos(int pos, int id) {   // ½T»{±ı«e©¹ªº¦ì¸m¬O§_¦Xªk
     return 0;
 }
 
-void monster_change_pos(int which, int from, int to, int id) { // ¹Ï¤Wªº²¾°Ê
+void monster_change_pos(int which, int from, int to, int id) { // åœ–ä¸Šçš„ç§»å‹•
     graph[id][from] = monster_char[which];
     monster_char[which] = graph[id][to];
     graph[id][to] = 'M';
 }
 
-int monster_run(int which, int monster_now, int id) { // ¶i¦æ²¾°Êªº¾Ş§@
+int monster_run(int which, int monster_now, int id) { // é€²è¡Œç§»å‹•çš„æ“ä½œ
 
     int aa = rand() % 4;
     bool b = 0;
@@ -894,14 +894,14 @@ int monster_run(int which, int monster_now, int id) { // ¶i¦æ²¾°Êªº¾Ş§@
 //------------------------------------------------------
 // game start
 
-void init_set(int id){ //¹CÀ¸¶}©l«e³õ´ºµ¥°ò¥»³]¸m
+void init_set(int id){ //éŠæˆ²é–‹å§‹å‰å ´æ™¯ç­‰åŸºæœ¬è¨­ç½®
     fflush(stdin);
     sum_scores += scores;
     scores = 0;
     graph[id] = graph_copy[id];
 }
 
-void start_the_game(int id) { //¹CÀ¸¹B§@
+void start_the_game(int id) { //éŠæˆ²é‹ä½œ
     system("stty -icanon");
     if(id == 4)  finish(id);
 
@@ -945,7 +945,7 @@ void start_the_game(int id) { //¹CÀ¸¹B§@
     end_the_game(id);
 }
 
-void end_the_game(int id) { //¹CÀ¸µ²§ôªº¹B§@
+void end_the_game(int id) { //éŠæˆ²çµæŸçš„é‹ä½œ
     SetColor(51);
     system("clear");
     SetColor(59);
@@ -1009,13 +1009,13 @@ void end_the_game(int id) { //¹CÀ¸µ²§ôªº¹B§@
 }
 
 
-int str_to_int(string str) { //¨¾§b¾÷¨î
+int str_to_int(string str) { //é˜²å‘†æ©Ÿåˆ¶
 
     for(int i = 0 ; i < str.size() ; i++) {
         if( !('0' <= str[i] and str[i] <= '9') )    return -1;
     }
     return stoi(str);
-    //----
+    /*
     if(str == "1")  return 1;
     if(str == "2")  return 2;
     if(str == "3")  return 3;
@@ -1037,20 +1037,5 @@ int str_to_int(string str) { //¨¾§b¾÷¨î
     if(str == "19")  return 19;
     if(str == "20")  return 20;
     return -1;
+    */
 }
-
-
-/*
-class character{
-public:
-    int
-
-
-private:
-
-
-};
-*/
-
-
-
